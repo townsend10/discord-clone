@@ -1,0 +1,15 @@
+Se usar o sqlite: 
+DATABASE_URL="file:./dev.db" (.env)
+
+schema.prisma
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+  
+}
+
+video :1h 14
+1° - organiza as pastas iniciais (pasta)/ (routes)/ page.tsx
+2°- Usar o clerk e seguir a doc
+3 - ativar o dark mode
+4 - prisma e models etc
