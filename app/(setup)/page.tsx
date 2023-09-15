@@ -1,5 +1,4 @@
-"use client";
-
+import InitalModal from "@/components/modals/initial-modal";
 import { initalProfile } from "@/lib/inital-profile";
 import prismadb from "@/lib/prismadb";
 import { redirect } from "next/navigation";
@@ -21,7 +20,7 @@ const SetupPage = async () => {
   if (server) {
     return redirect(`/servers/${server.id}`);
   }
-  return <div>create a server</div>;
+  return <InitalModal />;
 };
 
 export default SetupPage;
