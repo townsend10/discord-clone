@@ -17,9 +17,12 @@ import axios from "axios";
 const InviteModal = () => {
   const { isOpen, onClose, type, data, onOpen } = useModal();
   const origin = useOrigin();
+  const isModalOpen = isOpen && type === "invite";
 
   const [copied, setCopied] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { server } = data;
+  const inviteUrl = `${origin}/invite/${server?.inviteCode}`;
 
   const onCopy = () => {
     navigator.clipboard.writeText(inviteUrl);
@@ -44,10 +47,6 @@ const InviteModal = () => {
       setIsLoading(false);
     }
   };
-  const { server } = data;
-  const inviteUrl = `${origin}/invite/${server?.inviteCode}`;
-
-  const isModalOpen = isOpen && type === "invite";
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>

@@ -8,7 +8,7 @@ datasource db {
   
 }
 
-video :3:46
+video :4:39
 1° - organiza as pastas iniciais (pasta)/ (routes)/ page.tsx
 2°- Usar o clerk e seguir a doc
 3 - ativar o dark mode
