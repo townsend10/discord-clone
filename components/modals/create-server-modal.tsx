@@ -26,6 +26,15 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+
+const formSchema = z.object({
+  name: z.string().min(1, {
+    message: "Server name is required",
+  }),
+  imageUrl: z.string().min(1, {
+    message: "Server image is required",
+  }),
+});
 const CreateServerModal = () => {
   const { isOpen, onClose, type } = useModal();
 
@@ -33,14 +42,6 @@ const CreateServerModal = () => {
 
   const isModalOpen = isOpen && type === "createServer";
 
-  const formSchema = z.object({
-    name: z.string().min(1, {
-      message: "Server name is required",
-    }),
-    imageUrl: z.string().min(1, {
-      message: "Server image is required",
-    }),
-  });
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
