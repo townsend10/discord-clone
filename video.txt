@@ -5,10 +5,9 @@ schema.prisma
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
-  
 }
 
-video :5:24
+video :7:07
 1° - organiza as pastas iniciais (pasta)/ (routes)/ page.tsx
 2°- Usar o clerk e seguir a doc
 3 - ativar o dark mode
