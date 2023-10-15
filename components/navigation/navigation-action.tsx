@@ -5,12 +5,12 @@ import ActionTooltip from "@/components/action-tooltip";
 import { useModal } from "@/hooks/use-modal-store";
 
 const NavigationAction = () => {
-  const { onOpen } = useModal();
+  const { openModal } = useModal();
   return (
     <div>
       <ActionTooltip side="right" align="center" label="Add a server">
         <button
-          onClick={() => onOpen("createServer")}
+          onClick={() => openModal("createServer")}
           className="group flex items-center">
           <div
             className="flex mx-3 h-[48px] w-[48px] rounded-[24px] 

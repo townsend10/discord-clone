@@ -10,19 +10,22 @@ export type ModalType =
   | "leaveServer"
   | "deleteServer"
   | "deleteChannel"
-  | "editChannel";
-
+  | "editChannel"
+  | "messageFile"
+  | "deleteMessage";
 interface ModalData {
   server?: Server;
   channelType?: ChannelType;
   channel?: Chanel;
+  apiUrl?: string;
+  query?: Record<string, any>;
 }
 
 interface ModalStore {
   type: ModalType | null;
   data: ModalData;
   isOpen: boolean;
-  onOpen: (type: ModalType, data?: ModalData) => void;
+  openModal: (type: ModalType, data?: ModalData) => void;
   onClose: () => void;
 }
 
@@ -30,6 +33,10 @@ export const useModal = create<ModalStore>((set) => ({
   data: {},
   type: null,
   isOpen: false,
-  onOpen: (type, data = {}) => set({ isOpen: true, type, data }),
+  openModal: (type, data) => {
+    document.body.style.pointerEvents = "";
+
+    set({ isOpen: true, type, data });
+  },
   onClose: () => set({ type: null, isOpen: false }),
 }));

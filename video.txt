@@ -7,7 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-video :7:07
+video :10:45
+
 1° - organiza as pastas iniciais (pasta)/ (routes)/ page.tsx
 2°- Usar o clerk e seguir a doc
 3 - ativar o dark mode

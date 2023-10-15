@@ -43,7 +43,7 @@ const roleIconMap = {
   ADMIN: <ShieldAlert className="h-4 w-4 text-rose-500" />,
 };
 const MembersModal = () => {
-  const { isOpen, onClose, type, data, onOpen } = useModal();
+  const { isOpen, onClose, type, data, openModal } = useModal();
   const [loadingId, setLoadingId] = useState("");
   const isModalOpen = isOpen && type === "members";
   const router = useRouter();
@@ -62,7 +62,7 @@ const MembersModal = () => {
       const response = await axios.delete(url);
 
       router.refresh();
-      onOpen("members", { server: response.data });
+      openModal("members", { server: response.data });
     } catch (error) {
       console.log(error);
     } finally {
@@ -82,7 +82,7 @@ const MembersModal = () => {
 
       const response = await axios.patch(url, { role });
       router.refresh();
-      onOpen("members", { server: response.data });
+      openModal("members", { server: response.data });
     } catch (error) {
       console.log(error);
     } finally {

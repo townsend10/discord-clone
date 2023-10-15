@@ -20,7 +20,7 @@ const ServerSection = ({
   role,
   server,
 }: ServerSearchProps) => {
-  const { onOpen } = useModal();
+  const { openModal } = useModal();
   return (
     <div className="flex items-center justify-between py-2">
       <p className="text-xs uppercase font-semibold text-zinc-500 dark:text-zinc-400">
@@ -29,7 +29,7 @@ const ServerSection = ({
       {role !== MemberRole.GUEST && sectionType === "channels" && (
         <ActionTooltip label=" Create Channel" side="top">
           <button
-            onClick={() => onOpen("createChannel", { channelType })}
+            onClick={() => openModal("createChannel", { channelType })}
             className="text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 
           dark:hover:text-zinc-300 transition">
             <Plus className="h-4 w-4" />
@@ -39,7 +39,7 @@ const ServerSection = ({
       {role === MemberRole.ADMIN && sectionType === "members" && (
         <ActionTooltip label=" Manage Members" side="top">
           <button
-            onClick={() => onOpen("members", { server })}
+            onClick={() => openModal("members", { server })}
             className="text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 
            dark:hover:text-zinc-300 transition">
             <Settings className="h-4 w-4" />

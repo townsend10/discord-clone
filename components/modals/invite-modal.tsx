@@ -14,8 +14,9 @@ import { Check, Copy, RefreshCw } from "lucide-react";
 import { useOrigin } from "@/hooks/use-origin";
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 const InviteModal = () => {
-  const { isOpen, onClose, type, data, onOpen } = useModal();
+  const { isOpen, onClose, type, data, openModal } = useModal();
   const origin = useOrigin();
   const isModalOpen = isOpen && type === "invite";
 
@@ -23,6 +24,7 @@ const InviteModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { server } = data;
   const inviteUrl = `${origin}/invite/${server?.inviteCode}`;
+  const router = useRouter();
 
   const onCopy = () => {
     navigator.clipboard.writeText(inviteUrl);
@@ -40,7 +42,7 @@ const InviteModal = () => {
         `/api/servers/${server?.id}/invite-code`
       );
 
-      onOpen("invite", { server: response.data });
+      openModal("invite", { server: response.data });
     } catch (error) {
       console.log(error);
     } finally {
@@ -53,7 +55,7 @@ const InviteModal = () => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Invite Friends{" "}
+            Invite Friends now!{" "}
           </DialogTitle>
         </DialogHeader>
         <div className="p-6">
