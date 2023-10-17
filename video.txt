@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-video :10:45
+video :11:16 
 
 1° - organiza as pastas iniciais (pasta)/ (routes)/ page.tsx
 2°- Usar o clerk e seguir a doc

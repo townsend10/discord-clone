@@ -14,7 +14,7 @@ interface ChatInputProps {
   apiUrl: string;
   query: Record<string, any>;
   name: string;
-  type: "conversation " | "channel";
+  type: "conversation" | "channel";
 }
 
 const formSchema = z.object({
@@ -75,7 +75,7 @@ const ChatInput = ({ apiUrl, name, query, type }: ChatInputProps) => {
                     border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0
                     text-zinc-600 dark:text-zinc-200"
                     placeholder={`Message ${
-                      type === "conversation " ? name : "#" + name
+                      type === "conversation" ? name : "#" + name
                     }`}
                     {...field}
                   />
